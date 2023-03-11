@@ -60,8 +60,8 @@ function App() {
 
   const handleKeyDown = e => {
     if (e.keyCode === 13) {
-      console.log('Enter key pressed!');
-      // Add your logic here for what to do when the Enter key is pressed
+      setNewTodo(e.target.value);
+      addTodo();
     }
   };
 
@@ -108,8 +108,9 @@ function App() {
               className="add-todo-input"
               onChange={e => setNewTodo(e.target.value)}
               value={newTodo}
+              onKeyDown={handleKeyDown}
             />
-            <div className="button" onClick={addTodo} onKeyDown={handleKeyDown}>
+            <div className="button" onClick={addTodo}>
               Create Task
             </div>
           </div>
